@@ -20,16 +20,16 @@ public class Company {
         employeeList.add(new Employee());
         System.out.println("Uzupełnij poniższe dane.");
         System.out.print("Imię: ");
-        employeeList.get(Company.employeeList.size() - 1).setName(input.nextLine());
+        employeeList.get(employeeList.size() - 1).setName(input.nextLine());
         System.out.print("Nazwisko: ");
-        employeeList.get(Company.employeeList.size() - 1).setSurname(input.nextLine());
+        employeeList.get(employeeList.size() - 1).setSurname(input.nextLine());
         System.out.print("Stanowisko: ");
-        employeeList.get(Company.employeeList.size() - 1).setPosition(input.nextLine());
+        employeeList.get(employeeList.size() - 1).setPosition(input.nextLine());
         System.out.print("Zarobki: ");
-        employeeList.get(Company.employeeList.size() - 1).setSalary(input.nextDouble());
+        employeeList.get(employeeList.size() - 1).setSalary(input.nextDouble());
         System.out.print("Rok urodzenia: ");
-        employeeList.get(Company.employeeList.size() - 1).setBirthYear(input.nextInt());
-        employeeList.get(Company.employeeList.size() - 1).setId();
+        employeeList.get(employeeList.size() - 1).setBirthYear(input.nextInt());
+        employeeList.get(employeeList.size() - 1).setId();
         System.out.print("Chcesz dokonać jeszcze jednego wpisu? (T/n): ");
         char decision = input.next().charAt(0);
         if (decision == 'T' || decision == 't') {
