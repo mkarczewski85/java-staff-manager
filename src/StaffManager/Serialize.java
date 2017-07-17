@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Serialize {
 
+    //statyczna metoda serializacji listy obiektów klasy Employee do pliku płaskiego 'database.ser'
     public static void SerializeListOfEmployees() {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -29,6 +30,7 @@ public class Serialize {
 
     }
 
+    //statyczna metoda deserializacji (odczytu) listy obiektów klasy Employee do pliku płaskiego 'database.ser'
     public static void DeserializeListOfEmployees() {
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -39,18 +41,16 @@ public class Serialize {
             Company.employeeList = (ArrayList) ois.readObject();
             ois.close();
             fis.close();
-        }
-        catch (FileNotFoundException fnfex) {
+        } catch (FileNotFoundException fnfex) {
             fnfex.printStackTrace();
-        }
-        catch (IOException ioex) {
+        } catch (IOException ioex) {
             ioex.printStackTrace();
-        }
-        catch (ClassNotFoundException ccex) {
+        } catch (ClassNotFoundException ccex) {
             ccex.printStackTrace();
         }
     }
 
+    //statyczna metoda sprawdzająca czy plik z bazą znajduje się w katalogu z programem
     public static boolean CheckIfThereIsFile() {
         File data = new File("database.ser");
         if (data.exists() && !data.isDirectory()) {

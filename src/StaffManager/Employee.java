@@ -59,6 +59,7 @@ public class Employee implements Serializable {
         return birthYear;
     }
 
+    //wiek obliczany jest automatycznie na podstawie podanego roku urodzenia
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
         LocalDate currentYear = LocalDate.now();
@@ -69,7 +70,7 @@ public class Employee implements Serializable {
         return id;
     }
 
-    //nr pracownika ustawiany jest przez program na podstawie pola statycznego nextId (inkrementacja po nadaniu)
+    //nr pracownika ustawiany jest przez program na podstawie rozmiaru listy listy pracowników
     public void setId() {
         this.id = Company.employeeList.size();
     }

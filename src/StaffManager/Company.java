@@ -11,8 +11,10 @@ import java.util.Scanner;
 
 public class Company {
 
-    public static ArrayList<Employee> employeeList = new ArrayList<>(100);
+    //statyczny interfejs list przechowujący obiekty klasy Employee
+    public static ArrayList<Employee> employeeList = new ArrayList<>();
 
+    //statyczna metoda odpowiedzialna za tworzenie obiektów klasy Employee i wypełnianie ich pól
     public static void addEmployee() {
         Scanner input = new Scanner(System.in);
         employeeList.add(new Employee());
@@ -35,16 +37,19 @@ public class Company {
         }
     }
 
+    //statyczna metoda drukowania na ekranie listy wszystkich wprowadzonych do bazy pracowników
     public static void printListOfEmployees() {
         for (int i = 0; i < employeeList.size(); i++) {
             System.out.println(employeeList.get(i).toString());
         }
     }
 
+    //statyczna metoda drukowania na ekranie danych nt. wskazanego pracownika
     public static void printEmployee(int id) {
         System.out.println(employeeList.get(id - 1).toString());
     }
 
+    //statyczna metoda usuwania z bazy wskazanego pracownika (po usunięciu aktualizowane są nr pracowników)
     public static void removeEmployee(int id) {
         employeeList.remove(id - 1);
         for (int i = id - 1; i < employeeList.size(); i++) {
