@@ -11,23 +11,23 @@ import java.util.Scanner;
 
 public class Company {
 
-    public static ArrayList<Employee> employeeList = new ArrayList<>();
+    public static ArrayList<Employee> employeeList = new ArrayList<>(100);
 
     public static void addEmployee() {
         Scanner input = new Scanner(System.in);
         employeeList.add(new Employee());
         System.out.println("Uzupełnij poniższe dane.");
         System.out.print("Imię: ");
-        employeeList.get(Employee.getNextId()).setName(input.nextLine());
+        employeeList.get(Company.employeeList.size() - 1).setName(input.nextLine());
         System.out.print("Nazwisko: ");
-        employeeList.get(Employee.getNextId()).setSurname(input.nextLine());
+        employeeList.get(Company.employeeList.size() - 1).setSurname(input.nextLine());
         System.out.print("Stanowisko: ");
-        employeeList.get(Employee.getNextId()).setPosition(input.nextLine());
+        employeeList.get(Company.employeeList.size() - 1).setPosition(input.nextLine());
         System.out.print("Zarobki: ");
-        employeeList.get(Employee.getNextId()).setSalary(input.nextDouble());
+        employeeList.get(Company.employeeList.size() - 1).setSalary(input.nextDouble());
         System.out.print("Rok urodzenia: ");
-        employeeList.get(Employee.getNextId()).setBirthYear(input.nextInt());
-        employeeList.get(Employee.getNextId()).setId();
+        employeeList.get(Company.employeeList.size() - 1).setBirthYear(input.nextInt());
+        employeeList.get(Company.employeeList.size() - 1).setId();
         System.out.print("Chcesz dokonać jeszcze jednego wpisu? (T/n): ");
         char decision = input.next().charAt(0);
         if (decision == 'T' || decision == 't') {
@@ -49,7 +49,6 @@ public class Company {
         employeeList.remove(id - 1);
         for (int i = id - 1; i < employeeList.size(); i++) {
             employeeList.get(i).setId(i + 1);
-            Employee.nextId -= 1;
         }
 
     }

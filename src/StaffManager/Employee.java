@@ -18,7 +18,6 @@ public class Employee implements Serializable {
     private int age;
     private int birthYear;
     private int id;
-    static int nextId = Company.employeeList.size();
 
     public String getName() {
         return name;
@@ -72,17 +71,11 @@ public class Employee implements Serializable {
 
     //nr pracownika ustawiany jest przez program na podstawie pola statycznego nextId (inkrementacja po nadaniu)
     public void setId() {
-        this.id = nextId + 1;
-        nextId++;
+        this.id = Company.employeeList.size();
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    //statyczna metoda getNextId służy pobieraniu statycznej wartości nextId, która oznacza dotychczasową liczbę wpisów
-    public static int getNextId() {
-        return nextId;
     }
 
     //metoda toString() odpowiada za wyświetlanie stanu pól obiektu w odpowiednio sformatowanym łańcuchu
