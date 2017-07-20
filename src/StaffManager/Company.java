@@ -62,7 +62,7 @@ public class Company {
     
     //metoda zwracająca pracownika o najwyższych zarobkach
     public Employee getEmployeeWithHighestSalary() {
-        Employee emp = employees[0];
+        Employee emp = employeeList.get(i);
         for (int i = 1; i < employeeList.size(); i++) {
             if (employeeList.get(i).getSalary() > emp.getSalary()) {
                 emp = employeeList.get(i);
