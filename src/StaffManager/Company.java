@@ -41,5 +41,34 @@ public class Company {
             employeeList.get(i).setId(i + 1);
         }
     }
+    
+    //metoda zwracająca średni wiek wszystkich pracowników
+    public double countAvgSalary() {
+        double avg = 0;
+        for (int i = 0; i < employeeList.size(); i++) {
+            avg += employeeList.get(i).getSalary();
+        }
+        return avg / employeeList.size();
+    }
+    
+    //metoda zwracająca średnią zarobków wszystkich pracowników
+    public int countAvgAge() {
+        int avg = 0;
+        for (int i = 0; i < employeeList.size(); i++) {
+            avg += employeeList.get(i).getAge();
+        }
+        return avg / employeeList.size();
+    }
+    
+    //metoda zwracająca pracownika o najwyższych zarobkach
+    public Employee getEmployeeWithHighestSalary() {
+        Employee emp = employees[0];
+        for (int i = 1; i < employeeList.size(); i++) {
+            if (employeeList.get(i).getSalary() > emp.getSalary()) {
+                emp = employeeList.get(i);
+            }
+        }
+        return emp;
+    }
 
 }
