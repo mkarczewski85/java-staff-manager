@@ -12,14 +12,14 @@ import java.util.ArrayList;
 public class Serialize {
 
     //statyczna metoda serializacji listy obiektów klasy Employee do pliku płaskiego 'database.ser'
-    public static void SerializeListOfEmployees() {
+    public static void SerializeListOfEmployees(ArrayList<Employee> employeeList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream("database.ser");
             oos = new ObjectOutputStream(fos);
 
-            oos.writeObject(Company.employeeList);
+            oos.writeObject(employeeList);
             fos.close();
             oos.close();
         } catch (FileNotFoundException fnfex) {
@@ -30,15 +30,16 @@ public class Serialize {
 
     }
 
-    //statyczna metoda deserializacji (odczytu) listy obiektów klasy Employee do pliku płaskiego 'database.ser'
-    public static void DeserializeListOfEmployees() {
+    //statyczna metoda deserializacji (odczytu) listy obiektów klasy Employee z pliku płaskiego 'database.ser'
+    public static ArrayList<Employee> DeserializeListOfEmployees() {
+        ArrayList<Employee> employeeList = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
             fis = new FileInputStream("database.ser");
             ois = new ObjectInputStream(fis);
 
-            Company.employeeList = (ArrayList) ois.readObject();
+            employeeList = (ArrayList) ois.readObject();
             ois.close();
             fis.close();
         } catch (FileNotFoundException fnfex) {
@@ -48,6 +49,7 @@ public class Serialize {
         } catch (ClassNotFoundException ccex) {
             ccex.printStackTrace();
         }
+        return employeeList;
     }
 
     //statyczna metoda sprawdzająca czy plik z bazą znajduje się w katalogu z programem

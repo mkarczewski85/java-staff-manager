@@ -6,10 +6,12 @@ public class MainProgram {
 
     public static void main(String[] args) {
 
+        Company myCompany = new Company();
+
         //Sprawdzam czy został zapisany plik database.ser z obiektami klasy Employee (baza z danymi pracowników).
-         //Jeśli plik znajduje się w katalogu z programem przywoływana jest metoda deserializacji.
+        //Jeśli plik znajduje się w katalogu z programem przywoływana jest metoda deserializacji.
         if (Serialize.CheckIfThereIsFile()) {
-            Serialize.DeserializeListOfEmployees();
+            myCompany.employeeList = Serialize.DeserializeListOfEmployees();
         } else {
             System.out.println("Brak bazy danych!");
         }
@@ -32,31 +34,32 @@ public class MainProgram {
             switch (option) {
                 //opcja dodania nowego pracownika
                 case 1: {
-                    Company.addEmployee();
+                    Employee nextEmployee = new Employee();
+                    myCompany.addEmployee(nextEmployee);
                     break;
                 }
                 //opacja drukowania całej listy pracowników
                 case 2: {
-                    Company.printListOfEmployees();
+                    myCompany.printListOfEmployees();
                     break;
                 }
                 //opcja wyświetlenia danych nt. jednego pracownika
                 case 3: {
                     System.out.print("Podaj nr pracownika: ");
                     int idNumber = scanner.nextInt();
-                    Company.printEmployee(idNumber);
+                    myCompany.printEmployee(idNumber);
                     break;
                 }
                 //opcja usunięcia z bazy danych jednego pracownika
                 case 4: {
                     System.out.print("Podaj nr pracownika: ");
                     int idNumber = scanner.nextInt();
-                    Company.removeEmployee(idNumber);
+                    myCompany.removeEmployee(idNumber);
                     break;
                 }
                 //opcja zapisu stanu obiektów klasy Employee do pliku 'database.ser'
                 case 5: {
-                    Serialize.SerializeListOfEmployees();
+                    Serialize.SerializeListOfEmployees(myCompany.employeeList);
                     break;
                 }
                 //opcja wyjścia z systemu

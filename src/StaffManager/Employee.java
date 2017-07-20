@@ -48,7 +48,13 @@ public class Employee implements Serializable {
     }
 
     public void setSalary(double salary) {
-        this.salary = salary;
+        if (salary < 0) {
+            System.out.println("Pensja nie moze byc mniejsza od zero");
+            this.salary = -salary;
+        } else {
+            this.salary = salary;
+        }
+
     }
 
     public int getAge() {
@@ -68,11 +74,6 @@ public class Employee implements Serializable {
 
     public int getId() {
         return id;
-    }
-
-    //nr pracownika ustawiany jest przez program na podstawie rozmiaru listy listy pracowników
-    public void setId() {
-        this.id = Company.employeeList.size();
     }
 
     public void setId(int id) {
