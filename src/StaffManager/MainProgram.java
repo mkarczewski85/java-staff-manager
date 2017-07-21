@@ -25,9 +25,12 @@ public class MainProgram {
             System.out.println("1. Wprowadz nowy rekord");
             System.out.println("2. Wyświetl listę pracowników");
             System.out.println("3. Wyświetl dane pracownika");
-            System.out.println("4. Usuń dane pracownika");
-            System.out.println("5. Zapisz zmiany do pliku");
-            System.out.println("6. Wyjdź");
+            System.out.println("4. Wyświetl dane pracownika o najwyższych zarobkach");
+            System.out.println("5. Wyświetl informację nt. średniej zarobków pracowników w firmie");
+            System.out.println("6. Wyświetl informację nt. średniej wieku pracowników w firmie");
+            System.out.println("7. Usuń dane pracownika");
+            System.out.println("8. Zapisz zmiany do pliku");
+            System.out.println("0. Wyjdź");
             System.out.print("Wybierz opcję: ");
             option = scanner.nextInt();
 
@@ -50,20 +53,37 @@ public class MainProgram {
                     myCompany.printEmployee(idNumber);
                     break;
                 }
-                //opcja usunięcia z bazy danych jednego pracownika
+                //opcja wyświetlenia danych pracownika o najwyższych zarobkach
                 case 4: {
+                    System.out.println("Pracownikiem o najwyższych zarobkach jest:");
+                    System.out.println(myCompany.getEmployeeWithHighestSalary().toString());
+                    break;
+                }
+                //opcja wyświetlenia informacji nt. średniej zarobków pracowników w firmie
+                case 5: {
+                    System.out.println("Średnia zarobków w fimie wynosi: " + myCompany.countAvgSalary() + " złotych");
+                    break;
+                }
+                //opcja wyświetlenia informacji nt. średniej wieku pracowników w firmie
+                case 6: {
+                    System.out.println("Średnia wieku pracowników zatrudnionych w firmie wynosi: "
+                            + myCompany.countAvgAge() + " l.");
+                    break;
+                }
+                //opcja usunięcia z bazy danych jednego pracownika
+                case 7: {
                     System.out.print("Podaj nr pracownika: ");
                     int idNumber = scanner.nextInt();
                     myCompany.removeEmployee(idNumber);
                     break;
                 }
                 //opcja zapisu stanu obiektów klasy Employee do pliku 'database.ser'
-                case 5: {
+                case 8: {
                     Serialize.SerializeListOfEmployees(myCompany.employeeList);
                     break;
                 }
                 //opcja wyjścia z systemu
-                case 6: {
+                case 0: {
                     flag = false;
                     break;
                 }
