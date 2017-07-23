@@ -3,7 +3,7 @@ package StaffManager;
 import java.util.Scanner;
 
 /**
- * Klasa zawierająca statyczną metodę służącą do wypełniania pół obiektu typu Employee.
+ * Klasa narzędziowa zawierająca statyczną metodę służącą do wypełniania pół obiektu typu Employee.
  * Created by Maciej on 2017-07-19.
  */
 public class FillingIn {

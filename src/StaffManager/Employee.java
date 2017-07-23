@@ -2,6 +2,7 @@ package StaffManager;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Klasa Employee (POJO). Jej instancje reprezentują rekordy przechowujące informacje o pracownikach firmy.
@@ -80,10 +81,32 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    //metoda toString() odpowiada za wyświetlanie stanu pól obiektu w odpowiednio sformatowanym łańcuchu
+    //przesłonięta metoda toString() odpowiada za wyświetlanie stanu pól obiektu w odpowiednio sformatowanym łańcuchu
+    @Override
     public String toString() {
         return "Pracownik nr " + id + ": " + name + " " + surname + ", stanowisko: " + position + ", pensja: " + salary
                 + ", wiek: " + age;
     }
 
+    //przesłonięta metoda equals odpowiada za porównywanie dwóch obiketów klasy Employee
+    @Override
+    public boolean equals(Object otherObject) {
+        //sprawdzam czy obiekty są identyczne
+        if (this == otherObject) return true;
+        //sprawdzam czy jawny parametr jest null
+        if (otherObject == null) return false;
+        //sprawdzam czy klasy są identyczne
+        if (getClass() != otherObject.getClass()) return false;
+        //teraz bezpiecznie rzutuję jawny parametr na klasę Employee
+        Employee other = (Employee) otherObject;
+        //sprawdzam czy wartości pól dwóch obiektów klasy Employee są identyczne
+        return Objects.equals(name, other.name) && Objects.equals(surname, other.surname) &&
+                Objects.equals(position, other.position) && salary == other.salary && age == other.age;
+    }
+
+    //przesłonięta metoda hashCode() zwracająca wartość skrótu obiektu
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, position, salary, age);
+    }
 }

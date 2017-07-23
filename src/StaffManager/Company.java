@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Klasa Company zawiera metody odpowiedzialne za tworzenie obiektów typu Employee i uzupełnianie listy
- * pracowników, a także kolekcję obiektów typu Employee.
+ * pracowników, a także listę tablicową obiektów typu Employee.
  * Created by Maciej on 2017-07-15.
  */
 

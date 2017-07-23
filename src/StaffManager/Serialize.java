@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Klasa Serialize zawiera statyczne metody służące serializacji obiektów klasy Employee zawartych w kolekcji
+ * Klasa narzędziowa Serialize zawiera statyczne metody służące serializacji obiektów klasy Employee zawartych w kolekcji
  * do pliku płaskiego oraz ich deserializacji.
  * Created by Maciej on 2017-07-15.
  */
